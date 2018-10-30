@@ -11,7 +11,7 @@ We have worked with many classes and domains that all seem to be related in some
 * Practice querying a belongs to relationship
 
 ## Defining Our Class
-Alright, we are going to use a Car class to demonstrate a "belongs to" relationship. So, to get started, let's define a Car class with an `__init__` method that takes in parameters for make, model, year, and owner. The make and model are will be strings representing the name of the car manufacturer and the name of the car model, the year will be a number representing the year the car was produced, and the owner will be a string with the name of the car's owner. Again, these instance variables should follow convention and use leading underscores. Let's make intance methods to both get and set (read and write) these instance variables. Use the appropriate decorators and call these methods `make`, `model`, `year`, and `owner`. We should also have a class variable `_all` which points to a list of all car instance objects and a class method called `all` that allows us to get (read) this class variable. 
+Alright, we are going to use a Car class to demonstrate a "belongs to" relationship. So, to get started, let's define a Car class with an `__init__` method that takes in parameters for make, model, year, and owner. The make and model are will be strings representing the name of the car manufacturer and the name of the car model, the year will be a number representing the year the car was produced, and the owner will be a string with the name of the car's owner. Again, these instance variables should follow convention and use leading underscores. Let's make intance methods to both get and set (read and write) these instance variables. Use the appropriate decorators and call these methods `make`, `model`, `year`, and `owner`. We should also have a class variable `_all` which points to a list of all car instance objects and a class method called `all` that allows us to get (read) this class variable.
 
 
 ```python
@@ -35,7 +35,7 @@ datsun = Car("Datsun", "280Z", 1978, {'name': "Dwight Schrute", 'occupation': "P
 datsun.owner['occupation'] # 'Paper Salesperson'
 ```
 
-Alright, that's definitely better. We have way more information about the owner and it's beginning to give us more functionality as well. In fact, this dictionary kind of resembles an instance object. Let's define a Person class and have it initialize instances with a name and occupation (`_name`, `_occupation`). Make sure to include instance methods to get (read) these attributes with the appropriate decorator. 
+Alright, that's definitely better. We have way more information about the owner and it's beginning to give us more functionality as well. In fact, this dictionary kind of resembles an instance object. Let's define a Person class and have it initialize instances with a name and occupation (`_name`, `_occupation`). Make sure to include instance methods to get (read) these attributes with the appropriate decorator.
 
 
 ```python
@@ -66,7 +66,7 @@ toyota.owner.occupation # 'Secretary'
 ```
 
 Wow, that looks so much more straightforward! Also, the car's owner is basically a real person now (okay, maybe not *basically* but definitely closer than we were with just a string.)
-This relationship is a **belongs to relationship**. The car *belongs to* an owner. 
+This relationship is a **belongs to relationship**. The car *belongs to* an owner.
 
 Notice that the car knows who its owner is but does the owner have a car attribute?
 
@@ -85,11 +85,11 @@ del Car.all()[0]
 ```
 
 ## Querying a "Belongs To" Relationship
-We still want to know how many cars and what types of cars Pam has, so, we'll need to find a way to accomplish this. 
+We still want to know how many cars and what types of cars Pam has, so, we'll need to find a way to accomplish this.
 
-Let's think about the fact that the cars all know their owners. Where can we find a list of all the cars we have created? 
+Let's think about the fact that the cars all know their owners. Where can we find a list of all the cars we have created?
 
-We should be able to use the car class to answer our questions about who owns which cars, how many they own, and even if there is an occupation that lends itself to driving a certain make or model car. 
+We should be able to use the car class to answer our questions about who owns which cars, how many they own, and even if there is an occupation that lends itself to driving a certain make or model car.
 
 
 ```python
@@ -117,7 +117,7 @@ Person.has_oldest_car() # class method that returns the person instance object t
 
 
 ```python
-Person.drives_a("Toyota") 
+Person.drives_a("Toyota")
 # class method that returns a list of person instance objects that own a Toyota
 # example: [jim, pam, stanley]
 Person.drives_a("Ford")
@@ -128,7 +128,7 @@ Person.drives_a("Ford")
 
 ```python
 jim.drives_same_make_as_me()
-# instance method that returns a list of other dunder mifflin employees 
+# instance method that returns a list of other dunder mifflin employees
 # that drive the same make car as the instance object it was called on
 # example: [pam, stanley]
 ```
@@ -136,7 +136,7 @@ jim.drives_same_make_as_me()
 
 ```python
 Car.cars_driven_by("Paper Salesperson")
-# class method that returns a list of car instance objects that are driven 
+# class method that returns a list of car instance objects that are driven
 # by people whose occupation is "Paper Salesperson"
 # example: [dwight, jim, stanley]
 ```
@@ -144,4 +144,4 @@ Car.cars_driven_by("Paper Salesperson")
 ## Summary
 
 
-Great work! In this lab we successfully created a belongs to relationship between different Python classes. We were able to create a domain that more closely resembles a real world structure by translating the real world relationship between cars and people into code. We were then able to leverage this relationship in order to query information about our classes and their instances. Object relationships, although more straight forward than relationships between living people, can get quite complex and it is important to think critically about how to set them up properly. In a belongs to relationship, we learned it is the responsibilty of the *belongs to* class (the Car class) to know what it belongs to. 
+Great work! In this lab we successfully created a belongs to relationship between different Python classes. We were able to create a domain that more closely resembles a real world structure by translating the real world relationship between cars and people into code. We were then able to leverage this relationship in order to query information about our classes and their instances. Object relationships, although more straight forward than relationships between living people, can get quite complex and it is important to think critically about how to set them up properly. In a belongs to relationship, we learned it is the responsibilty of the *belongs to* class (the Car class) to know what it belongs to.
